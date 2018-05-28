@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group        android:id="@+id/menu_top"
+
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/vote"
+            android:title="@string/vote"
+            android:icon="@drawable/ic_pan_tool_black_24dp" />
+        <item
+            android:id="@+id/trouble"
+            android:title="@string/trouble"
+            android:icon="@drawable/ic_error_outline_black_24dp" />
+        <item
+            android:id="@+id/question"
+            android:title="@string/question"
+            android:icon="@drawable/ic_question_answer_black_24dp" />
+        <item
+            android:id="@+id/meeting"
+            android:title="@string/meeting"
+            android:icon="@drawable/ic_calendar" />
+    </group>
+
+    <group
+        android:id="@+id/menu_bottom"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/myPage"
+            android:title="@string/myPage"
+            android:icon="@drawable/ic_home_black_24dp" />
+        <item
+            android:id="@+id/news"
+            android:title="@string/news"
+            android:icon="@drawable/ic_chat_black_24dp" />
+    </group>
+
+
+</menu>

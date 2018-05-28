@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Citizen</string>
+    <string name="myPage">Моя страница</string>
+    <string name="news">Новости</string>
+    <string name="vote">Голосование</string>
+    <string name="trouble">Сообщить о проблеме</string>
+    <string name="question">Задать вопрос</string>
+    <string name="meeting">Записаться на приём</string>
+    <string name="troubleReport">Сообщить о проблеме</string>
+    <string name="title">Заголовок</string>
+    <string name="description">Описание</string>
+    <string name="send_anonymous">Отправить анонимно?</string>
+    <string name="send">Отправить</string>
+</resources>
