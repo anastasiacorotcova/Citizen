@@ -3,9 +3,9 @@ package com.nastya.citizen;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -29,6 +29,9 @@ public class TroubleFragment extends Fragment {
     private ImageView thirdImageView;
     private ImageView fourthImageView;
 
+    private String tmpFolder;
+
+
     public static TroubleFragment newInstance() {
 
         Bundle args = new Bundle();
@@ -36,6 +39,13 @@ public class TroubleFragment extends Fragment {
         TroubleFragment fragment = new TroubleFragment();
         fragment.setArguments(args);
         return fragment;
+    }
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        tmpFolder = Environment.getExternalStorageDirectory().getAbsolutePath() + Constants.ANDROID_DATA + getActivity().getPackageName() + Constants.TMP_FILES_IMAGE_FOLDER;
+
     }
 
     @Nullable

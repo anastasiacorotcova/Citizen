@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginEnd="25dp"
+    android:layout_marginLeft="25dp"
+    android:layout_marginRight="25dp"
+    android:layout_marginStart="25dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/e-mail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/e_mail"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/emailInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/e-mail"
+            android:inputType="textEmailAddress"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/pass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/emailInsert"
+            android:text="@string/pass"
+            android:textSize="20sp" />
+
+        <EditText
+            android:id="@+id/passInsert"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pass"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLines="1"
+            android:padding="5dp"
+            android:textSize="20sp" />
+
+        <CheckBox
+            android:id="@+id/rememberMe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/passInsert"
+            android:text="@string/rememberMe" />
+
+
+        <Button
+            android:id="@+id/login_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/rememberMe"
+            android:layout_marginTop="10dp"
+            android:background="@color/submitColor"
+            android:text="@string/send"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</RelativeLayout>

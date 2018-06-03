@@ -11,4 +11,16 @@
     <string name="description">Описание</string>
     <string name="send_anonymous">Отправить анонимно?</string>
     <string name="send">Отправить</string>
+    <string name="e_mail">Ваш e-mail:</string>
+    <string name="pass">Ваш пароль:</string>
+    <string name="rememberMe">Запомнить меня?</string>
+    <string name="wrong_message_text">Введены неверные данные!</string>
+    <string name="empty_message_text">Введите логин и пароль!</string>
+    <string name="questionText">Введите свой вопрос:</string>
+    <string name="enroll">Записаться</string>
+    <string name="navigation_drawer_open">drawer open</string>
+    <string name="navigation_drawer_close">drawer close</string>
+    <string name="day">День</string>
+    <string name="time">Время</string>
+    <string name="ok">OK</string>
 </resources>
