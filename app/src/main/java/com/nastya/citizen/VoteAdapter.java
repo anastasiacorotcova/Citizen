@@ -13,11 +13,13 @@ import java.util.List;
 public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.VoteViewHolder> {
 
     private List<Vote> voteList;
+    private OnVoteSelectedListener listener;
     private Context context;
 
-    public VoteAdapter(List<Vote> voteList, Context context) {
+    public VoteAdapter(List<Vote> voteList, Context context, OnVoteSelectedListener listener) {
         this.voteList = voteList;
         this.context = context;
+        this.listener = listener;
     }
 
     @NonNull
@@ -29,7 +31,7 @@ public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.VoteViewHolder
     @Override
     public void onBindViewHolder(@NonNull VoteViewHolder holder, int position) {
         Vote vote = voteList.get(position);
-        holder.bind(vote);
+        holder.bind(vote, listener);
     }
 
     @Override
@@ -48,10 +50,16 @@ public class VoteAdapter extends RecyclerView.Adapter<VoteAdapter.VoteViewHolder
             contentTextView = itemView.findViewById(R.id.content_text_view);
         }
 
-        public void bind(Vote vote) {
-            String title = vote.getTitle() + ":";
+        public void bind(final Vote vote, final OnVoteSelectedListener listener) {
+            String title = context.getString(R.string.quiz) + (getLayoutPosition() + 1) + ":";
             titleTextView.setText(title);
             contentTextView.setText(vote.getContent());
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.voteSelected(vote);
+                }
+            });
         }
     }
 }

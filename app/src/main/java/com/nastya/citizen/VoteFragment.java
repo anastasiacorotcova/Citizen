@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class VoteFragment extends Fragment {
+public class VoteFragment extends Fragment implements OnVoteSelectedListener {
 
     private FirebaseDatabase firebaseDatabase;
 
@@ -59,7 +60,7 @@ public class VoteFragment extends Fragment {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                VoteAdapter adapter = new VoteAdapter(collectNews((Map<String, Object>) dataSnapshot.getValue()), getContext());
+                VoteAdapter adapter = new VoteAdapter(collectNews((Map<String, Object>) dataSnapshot.getValue()), getContext(), VoteFragment.this);
                 voteRecyclerView.setAdapter(adapter);
             }
 
@@ -79,10 +80,22 @@ public class VoteFragment extends Fragment {
 
             Map singleNews = (Map) entry.getValue();
             voteList.add(new Vote(
-                    singleNews.get("Title").toString(),
+                    entry.getKey(),
                     singleNews.get("Content").toString()
             ));
         }
         return voteList;
+    }
+
+    @Override
+    public void voteSelected(Vote vote) {
+        Fragment newFragment = VoteContentFragment.newInstance(vote);
+        FragmentTransaction transaction;
+        if (getFragmentManager() != null) {
+            transaction = getFragmentManager().beginTransaction();
+            transaction.replace(R.id.main_container, newFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 }

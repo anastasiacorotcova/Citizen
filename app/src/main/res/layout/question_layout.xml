@@ -9,6 +9,7 @@
 
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,6 +20,7 @@
 
 
     <TextView
+        android:textColor="@color/black"
         android:id="@+id/title_question"
         android:textSize="20sp"
         android:layout_below="@+id/question"
@@ -27,6 +29,7 @@
         android:layout_height="wrap_content" />
 
     <EditText
+        android:textColor="@color/black"
         android:id="@+id/questionInsert"
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -38,6 +41,7 @@
         android:textSize="20sp" />
 
     <CheckBox
+        android:textColor="@color/black"
         android:id="@+id/question_check_box"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

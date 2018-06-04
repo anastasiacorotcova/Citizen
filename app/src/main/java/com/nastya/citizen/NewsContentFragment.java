@@ -39,6 +39,8 @@ public class NewsContentFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ((MainActivity) getActivity()).enableViews(true);
+
         News news = null;
         if (getArguments() != null) {
             news = (News) getArguments().getSerializable("news_content");
@@ -57,5 +59,12 @@ public class NewsContentFragment extends Fragment {
             contentTextView.setText(news.getContent());
             Picasso.get().load(news.getImage()).into(imageView);
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ((MainActivity) getActivity()).enableViews(false);
+
     }
 }

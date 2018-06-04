@@ -1,6 +1,8 @@
 package com.nastya.citizen;
 
-class Vote {
+import java.io.Serializable;
+
+class Vote implements Serializable {
 
     private String title;
     private String content;

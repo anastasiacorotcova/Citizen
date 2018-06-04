@@ -23,4 +23,7 @@
     <string name="day">День</string>
     <string name="time">Время</string>
     <string name="ok">OK</string>
+    <string name="quiz">Опрос</string>
+    <string name="accept">Согласен</string>
+    <string name="decline">Не согласен</string>
 </resources>

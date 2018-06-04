@@ -26,6 +26,7 @@
                 android:layout_height="200dp" />
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/news_title"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
@@ -37,6 +38,7 @@
                 tools:text="TitleNewsExample \n tetttttt" />
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/news_category"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,6 +48,7 @@
                 tools:text="general" />
 
             <TextView
+                android:textColor="@color/black"
                 android:id="@+id/news_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
