@@ -56,12 +56,24 @@ public class VoteFragment extends Fragment implements OnVoteSelectedListener {
         voteRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
         DatabaseReference reference = firebaseDatabase.getReference("Voting");
+        final DatabaseReference userVoteReference = firebaseDatabase.getReference("Users").child("User1").child("Voting");
 
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                VoteAdapter adapter = new VoteAdapter(collectNews((Map<String, Object>) dataSnapshot.getValue()), getContext(), VoteFragment.this);
-                voteRecyclerView.setAdapter(adapter);
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot) {
+                userVoteReference.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                        final VoteAdapter adapter = new VoteAdapter(collectNews((Map<String, Object>) dataSnapshot.getValue()), collectVoted((Map<String, Object>) dataSnapshot1.getValue()), getContext(), VoteFragment.this);
+                        voteRecyclerView.setAdapter(adapter);
+                        System.out.println((Map<String, Object>) dataSnapshot1.getValue());
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                    }
+                });
             }
 
             @Override
@@ -87,9 +99,20 @@ public class VoteFragment extends Fragment implements OnVoteSelectedListener {
         return voteList;
     }
 
+
+    private List<String> collectVoted(Map<String, Object> voted) {
+
+        List<String> voteList = new ArrayList<>();
+
+        for (Map.Entry<String, Object> entry : voted.entrySet()) {
+            voteList.add(entry.getKey());
+        }
+        return voteList;
+    }
+
     @Override
-    public void voteSelected(Vote vote) {
-        Fragment newFragment = VoteContentFragment.newInstance(vote);
+    public void voteSelected(Vote vote, boolean voted) {
+        Fragment newFragment = VoteContentFragment.newInstance(vote, voted);
         FragmentTransaction transaction;
         if (getFragmentManager() != null) {
             transaction = getFragmentManager().beginTransaction();

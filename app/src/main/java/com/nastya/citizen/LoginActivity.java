@@ -82,10 +82,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        /*FirebaseUser user = auth.getCurrentUser();
+        FirebaseUser user = auth.getCurrentUser();
         if (user != null) {
             Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
-        }*/
+        }
     }
 }

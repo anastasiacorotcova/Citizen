@@ -18,7 +18,11 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -41,6 +45,10 @@ public class TroubleFragment extends Fragment implements OnMapReadyCallback, Loc
     private ImageView thirdImageView;
     private ImageView fourthImageView;
 
+    private Button sendButton;
+    private EditText titleInsertTextView;
+    private EditText bodyInsertTextView;
+    private CheckBox checkBox;
     private GoogleMap map;
     private LocationManager locationManager;
 
@@ -82,6 +90,12 @@ public class TroubleFragment extends Fragment implements OnMapReadyCallback, Loc
         thirdImageView = view.findViewById(R.id.third_image);
         fourthImageView = view.findViewById(R.id.fourth_image);
 
+        sendButton = view.findViewById(R.id.trouble_send_button);
+        titleInsertTextView = view.findViewById(R.id.titleInsert);
+        bodyInsertTextView = view.findViewById(R.id.descriptionInsert);
+
+        checkBox = view.findViewById(R.id.trouble_check_box);
+
         firstImageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,6 +121,21 @@ public class TroubleFragment extends Fragment implements OnMapReadyCallback, Loc
             @Override
             public void onClick(View v) {
                 openGallery(PICK_FOURTH_IMAGE);
+            }
+        });
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                titleInsertTextView.getText().clear();
+                bodyInsertTextView.getText().clear();
+                firstImageView.setImageResource(R.drawable.ic_photo_camera);
+                secondImageView.setImageResource(R.drawable.ic_photo_camera);
+                thirdImageView.setImageResource(R.drawable.ic_photo_camera);
+                fourthImageView.setImageResource(R.drawable.ic_photo_camera);
+                checkBox.setChecked(false);
+                Toast.makeText(getContext(), "Ваша заявка принята!", Toast.LENGTH_LONG).show();
             }
         });
 

@@ -11,7 +11,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.jaredrummler.materialspinner.MaterialSpinner;
 import com.jaredrummler.materialspinner.MaterialSpinnerAdapter;
@@ -29,6 +31,7 @@ public class MeetingFragment extends Fragment {
     private TextView timeTextView;
     private MaterialSpinner spinner;
     private List<String> categoryList;
+    private Button sendButton;
 
     public static MeetingFragment newInstance() {
 
@@ -66,6 +69,7 @@ public class MeetingFragment extends Fragment {
         dateTextView = view.findViewById(R.id.dayInsert);
         timeTextView = view.findViewById(R.id.timeInsert);
         spinner = view.findViewById(R.id.category_select);
+        sendButton = view.findViewById(R.id.meeting_send_button);
         spinner.setAdapter(new MaterialSpinnerAdapter<String>(context, categoryList) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -98,6 +102,13 @@ public class MeetingFragment extends Fragment {
                     timePickerFragment.setTargetFragment(MeetingFragment.this, Constants.TIME_PICKER_REQUEST_CODE);
                     timePickerFragment.show(getFragmentManager(), timePickerFragment.getClass().getName());
                 }
+            }
+        });
+
+        sendButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(), "Ваша заявка принята!", Toast.LENGTH_LONG).show();
             }
         });
 
