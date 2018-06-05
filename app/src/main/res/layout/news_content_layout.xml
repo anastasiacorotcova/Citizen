@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/category_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="8dp"
+            android:textSize="16sp"
+            tools:text="GENERAL" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/title_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_toLeftOf="@id/category_text_view"
+            android:layout_toStartOf="@id/category_text_view"
+            android:textStyle="bold"
+            tools:text="TITLE" />
+
+        <ImageView
+            android:id="@+id/image_view"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@id/title_text_view" />
+
+        <TextView
+            android:textColor="@color/black"
+            android:id="@+id/date_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@id/image_view"
+            android:layout_margin="8dp"
+            tools:text="02/06/2018" />
+
+        <TextView
+            android:layout_margin="8dp"
+            android:textColor="@color/black"
+            android:id="@+id/content_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/date_text_view" />
+
+    </RelativeLayout>
+
+
+</ScrollView>

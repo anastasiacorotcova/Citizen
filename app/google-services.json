@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "848364444028",
+    "firebase_url": "https://citizen-98454.firebaseio.com",
+    "project_id": "citizen-98454",
+    "storage_bucket": "citizen-98454.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:848364444028:android:49bf4a93aa1c51c6",
+        "android_client_info": {
+          "package_name": "com.nastya.citizen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "848364444028-0jtgoc4069qqqod3oqnk2l38uh507tfl.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "848364444028-0jtgoc4069qqqod3oqnk2l38uh507tfl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6GrG4822HNvwjn77Ioq6qQx6DVm8bf-E"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
